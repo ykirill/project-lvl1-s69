@@ -7,5 +7,8 @@ start:
 build:
 	npm run build
 
+lint:
+	npm run lint
+
 publish:
 	npm publish
