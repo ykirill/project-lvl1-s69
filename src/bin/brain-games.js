@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import  readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync';
 
 const greeting = 'Welcome to the Brain Games!\n';
 console.log(greeting);
