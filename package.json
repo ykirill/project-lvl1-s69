@@ -1,0 +1,17 @@
+{
+  "name": "bg_project",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ykirill/project-lvl1-s69.git",
+  "author": "nemaeska <k.n.yakushev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "babel-node": "babel-node"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-stage-0": "^6.22.0"
+  }
+}
