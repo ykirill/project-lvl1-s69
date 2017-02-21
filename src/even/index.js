@@ -4,7 +4,7 @@ import askUser from '../';
 const CORRECT = 'correct';
 const WRONG = 'wrong';
 
-const evenGame = (numbers: Array<number>, name: string, flag: string = 'correct') => {
+const runEvenGame = (numbers: Array<number>, name: string, flag: string = 'correct') => {
   if (numbers.length === 0) {
     console.log(`Congratulations, ${name}!`);
     return;
@@ -17,11 +17,11 @@ const evenGame = (numbers: Array<number>, name: string, flag: string = 'correct'
     case CORRECT: {
       const userAnswer = askUser(question);
       if (userAnswer !== isEven) {
-        evenGame(rest, name, 'wrong');
+        runEvenGame(rest, name, 'wrong');
         return;
       }
       console.log('Correct!\n');
-      evenGame(rest, name);
+      runEvenGame(rest, name);
       return;
     }
     case WRONG: {
@@ -34,4 +34,4 @@ const evenGame = (numbers: Array<number>, name: string, flag: string = 'correct'
   }
 };
 
-export default evenGame;
+export default runEvenGame;
