@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 // @flow
-import askUser from '../';
+import make from '..';
 
-console.log('Welcome to the Brain Games!\n');
+const startMassage = 'Welcome to the Brain Games!';
 
-// let's ask user's name and greet him
-const userName:string = askUser('May I have your name? ');
-console.log(`Hello, ${userName}`);
+const game = make(startMassage, () => {});
+game();

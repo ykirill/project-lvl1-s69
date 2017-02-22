@@ -13,7 +13,8 @@
     "flow": "flow"
   },
   "bin": {
-    "b-games": "dist/bin/brain-games.js",
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-even": "dist/bin/brain-even.js"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "flow-bin": "^0.39.0"
   },
   "dependencies": {
+    "hexlet-pairs": "^0.1.4",
     "readline-sync": "^1.4.6"
   }
 }
