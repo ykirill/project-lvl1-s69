@@ -1,6 +1,9 @@
 // @flow
 
 export default class {
+  operator: string;
+  operand1: number;
+  operand2: number;
   constructor(sign: string, num1: number, num2: number) {
     this.operator = sign;
     this.operand1 = num1;

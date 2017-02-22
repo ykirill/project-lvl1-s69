@@ -1,6 +1,7 @@
 // @flow
 
 export default class {
+  num: number;
   constructor(num: number) {
     this.num = num;
   }

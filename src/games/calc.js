@@ -1,6 +1,9 @@
 // @flow
 import { question } from 'readline-sync';
+import Expression from '../data/Expression';
 
-export const checker = (currentValue, userValue) => Number(userValue) === currentValue.getResult();
+type E = Expression;
+export const checker = (currentValue: E, userValue: string) =>
+  Number(userValue) === currentValue.getResult();
 
-export const ask = quest => question(quest);
+export const ask = (quest: string) => question(quest);

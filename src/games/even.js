@@ -1,9 +1,12 @@
 // @flow
 import { question } from 'readline-sync';
+import Numbers from '../data/Numbers';
 
-export const checker = (currentValue, userValue) => currentValue.isEven() === userValue;
+type N = Numbers;
 
-export const ask = quest => question(quest, {
+export const checker = (currentValue: N, userValue: boolean) => currentValue.isEven() === userValue;
+
+export const ask = (quest: string) => question(quest, {
   trueValue: ['yes'],
   falseValue: ['no'],
 });

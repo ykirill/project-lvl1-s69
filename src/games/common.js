@@ -5,9 +5,11 @@ const WRONG = 'wrong';
 
 const askQuestion = item => console.log(`Question: ${item}`);
 
-export default function loop(user: string, collection: Array<void>, checker: void, ask: void) {
+// eslint -> max-len
+export default function loop(user: string,
+  collection: Array<any>, checker: Function, ask: Function) {
   const looseMessage = `Let's try again, ${user}!`;
-  const iter = (coll, state: string) => {
+  const iter = (coll: Array<any>, state: string) => {
     if (coll.length === 0) {
       if (state === 'correct') {
         return console.log(`Congratulations, ${user}!\n`);

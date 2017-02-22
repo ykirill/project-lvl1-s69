@@ -3,7 +3,7 @@ import Expression from '../data/Expression';
 
 const getRandomNumber = (limit: number) => Math.floor(Math.random() * limit);
 
-const getExpressions = (arr: Array<void>, operators: Array<string> = ['+', '-', '*']) => {
+const getExpressions = (arr: Array<Expression>, operators: Array<string> = ['+', '-', '*']) => {
   if (operators.length === 0) {
     return arr;
   }

@@ -1,7 +1,7 @@
 // @flow
 import Numbers from '../data/Numbers';
 
-const getNumbers = (arr: Array<void>, num: number) => {
+const getNumbers = (arr: Array<Numbers>, num: number) => {
   if (arr.length === num) {
     return arr;
   }

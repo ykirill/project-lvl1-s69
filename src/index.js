@@ -2,8 +2,8 @@
 import { question } from 'readline-sync';
 
 export default function (startMessage: string,
-  logic: void, collection: Array<void>,
-  checker: void, ask: void) {
+  logic: Function, collection: ?Array<any>,
+  checker: ?Function, ask: ?Function) {
   return () => {
     console.log(`${startMessage}\n`);
     const user = question('May I have your name? ');
