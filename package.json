@@ -1,6 +1,6 @@
 {
   "name": "b-games",
-  "version": "0.2.2",
+  "version": "0.3.2",
   "main": "index.js",
   "repository": "git@github.com:ykirill/project-lvl1-s69.git",
   "author": "nemaeska <k.n.yakushev@gmail.com>",
@@ -15,6 +15,7 @@
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js",
     "brain-even": "dist/bin/brain-even.js"
   },
   "devDependencies": {

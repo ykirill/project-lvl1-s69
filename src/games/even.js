@@ -5,8 +5,8 @@ import brainGames from '..';
 const gameSteps = 3;
 
 const getTask = (number: number) => ({
-  answer: isEven(number) ? 'yes' : 'no',
   question: `Question: ${number}`,
+  answer: isEven(number) ? 'yes' : 'no',
 });
 
 const composeTasks = (length: number) => {
