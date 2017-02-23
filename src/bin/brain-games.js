@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 // @flow
-import make from '..';
+import run from '..';
 
-const startMassage = 'Welcome to the Brain Games!';
-
-const game = make(startMassage, () => {});
-game();
+run();
