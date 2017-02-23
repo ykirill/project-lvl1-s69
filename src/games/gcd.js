@@ -16,7 +16,6 @@ const composeTasks = (length: number) => {
     }
     const a = getRandNumber(1, 100);
     const b = getRandNumber(1, 100);
-    console.log(a, b, getTask(a, b).answer);
     const newAcc = [...acc, getTask(a, b)];
     return iter(count - 1, newAcc);
   };
