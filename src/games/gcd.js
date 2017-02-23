@@ -23,7 +23,7 @@ const composeTasks = (length: number) => {
 };
 
 const run = () => {
-  const rule = 'What is the result of the expression?';
+  const rule = 'Find the greatest common divisor of given numbers.';
   const tasks = composeTasks(gameSteps);
   return brainGames(rule, tasks);
 };
