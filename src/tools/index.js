@@ -1,6 +1,19 @@
 // @flow
 const isEven = (number: number) => number % 2 === 0;
 
+const isPrime = (number: number) => {
+  console.log(number);
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i < number / 2; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
 const getRandNumber = (start: number, end: number) =>
   start + Math.floor(Math.random() * ((end - start) + 1));
 
@@ -53,4 +66,4 @@ const prepareData = (progression: Array<number>) => {
   return [result.join(', '), progression[index].toString()];
 };
 
-export { isEven, getRandNumber, gcd, getBalanced, getProgression, prepareData };
+export { isEven, isPrime, getRandNumber, gcd, getBalanced, getProgression, prepareData };
