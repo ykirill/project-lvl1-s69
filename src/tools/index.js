@@ -35,4 +35,22 @@ const getBalanced = (num: number) => {
   return composeNewNumber(numLength, []);
 };
 
-export { isEven, getRandNumber, gcd, getBalanced };
+const getProgression = (start: number, step: number, length: number) => {
+  const iter = (acc: Array<number>, current: number) => {
+    if (acc.length === length) {
+      return acc;
+    }
+    return iter([...acc, current], current + step);
+  };
+
+  return iter([], start);
+};
+
+const prepareData = (progression: Array<number>) => {
+  const index = getRandNumber(0, progression.length - 1);
+  const result = progression.reduce((acc, item, i) =>
+    [...acc, i === index ? '..' : item], []);
+  return [result.join(', '), progression[index].toString()];
+};
+
+export { isEven, getRandNumber, gcd, getBalanced, getProgression, prepareData };
