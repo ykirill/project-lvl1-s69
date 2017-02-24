@@ -17,19 +17,14 @@ If you use yarn:
 
 ## Usage:
 
-The package contains four text games now. To start them you should type 
-     
-    $ brain-games
-Or    
-    
-    $ brain-even
-    
-Or
+The package contains five text games:
 
-    $ brain-calc
+- brain-games
+- brain-even
+- brain-calc
+- brain-gcd
+- brain-balance
 
-Or
-
-    $ brain-gcd
+To start one of them just type it name in your terminal.
 
 Enjoy!
