@@ -2,6 +2,7 @@
 import { getRandNumber, composeTasks } from '../tools';
 import brainGames from '..';
 
+const rule = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 
 const getTask = (operator: number, a: number, b: number) => {
@@ -27,7 +28,6 @@ const getTask = (operator: number, a: number, b: number) => {
 };
 
 const run = () => {
-  const rule = 'What is the result of the expression?';
   const args = [
     () => getRandNumber(1, operators.length - 1),
     () => getRandNumber(1, 100),
