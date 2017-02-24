@@ -12,27 +12,27 @@ const gcd = (a: number, b: number) => {
 };
 
 const getBalanced = (num: number) => {
-  const str = num.toString();
-  const sum = str.split('')
+  const numLength = num.toString().length;
+  const sum = num.toString().split('')
     .reduce((acc: number, n: string) => Number(n) + acc, 0);
-  const d = Math.floor(sum / str.length);
-  const r = sum % str.length;
+  const average = Math.floor(sum / numLength);
+  const reminder = sum % numLength;
 
-  const addReminder = (rem: number, arr: Array<number>) => {
+  const doBalance = (rem: number, arr: Array<number>) => {
     if (rem === 0) {
       return arr.join('');
     }
     const [current, ...rest] = arr;
-    return addReminder(rem - 1, [...rest, current + 1]);
+    return doBalance(rem - 1, [...rest, current + 1]);
   };
 
-  const prepareNumber = (counter: number, acc: Array<number>) => {
+  const composeNewNumber = (counter: number, acc: Array<number>) => {
     if (counter === 0) {
-      return addReminder(r, acc);
+      return doBalance(reminder, acc);
     }
-    return prepareNumber(counter - 1, [...acc, d]);
+    return composeNewNumber(counter - 1, [...acc, average]);
   };
-  return prepareNumber(str.length, []);
+  return composeNewNumber(numLength, []);
 };
 
 export { isEven, getRandNumber, gcd, getBalanced };
