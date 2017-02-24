@@ -17,13 +17,15 @@ If you use yarn:
 
 ## Usage:
 
-The package contains five text games:
+The package contains seven text games:
 
 - brain-games
 - brain-even
 - brain-calc
 - brain-gcd
 - brain-balance
+- brain-progression
+- brain-prime
 
 To start one of them just type it name in your terminal.
 
