@@ -1,12 +1,12 @@
 // @flow
-import { getRandNumber } from '../tools';
+import { getRandNumber, composeTasks } from '../tools';
 import brainGames from '..';
 
-const gameSteps = 3;
+const operators = ['+', '-', '*'];
 
-const getTask = (operator: string, a: number, b: number) => {
-  const result = { question: `Question: ${a} ${operator} ${b}`, answer: '' };
-  switch (operator) {
+const getTask = (operator: number, a: number, b: number) => {
+  const result = { question: `Question: ${a} ${operators[operator]} ${b}`, answer: '' };
+  switch (operators[operator]) {
     case '+': {
       result.answer = (a + b).toString();
       break;
@@ -26,29 +26,14 @@ const getTask = (operator: string, a: number, b: number) => {
   return result;
 };
 
-const expressions = [
-  (a: number, b: number) => getTask('+', a, b),
-  (a: number, b: number) => getTask('-', a, b),
-  (a: number, b: number) => getTask('*', a, b),
-];
-
-const composeTasks = (length: number) => {
-  const iter = (count: number, acc) => {
-    if (count === 0) {
-      return acc;
-    }
-    const a = getRandNumber(1, 100);
-    const b = getRandNumber(1, 100);
-    const exp = getRandNumber(0, expressions.length - 1);
-    const newAcc = [...acc, expressions[exp](a, b)];
-    return iter(count - 1, newAcc);
-  };
-  return iter(length, []);
-};
-
 const run = () => {
   const rule = 'What is the result of the expression?';
-  const tasks = composeTasks(gameSteps);
+  const args = [
+    () => getRandNumber(1, operators.length - 1),
+    () => getRandNumber(1, 100),
+    () => getRandNumber(1, 100),
+  ];
+  const tasks = composeTasks(getTask, args);
   return brainGames(rule, tasks);
 };
 

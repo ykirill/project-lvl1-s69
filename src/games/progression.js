@@ -1,33 +1,25 @@
 // @flow
-import { getRandNumber, getProgression, prepareData } from '../tools';
+import { getRandNumber, getProgression, prepareData, composeTasks } from '../tools';
 import brainGames from '..';
 
-const gameSteps = 3;
+const rule = 'What number is missing in this progression?';
 const progressionLength = 10;
 
-const getTask = (question: string, answer: string) => ({
-  question,
-  answer,
-});
-
-const composeTasks = (length: number) => {
-  const iter = (count: number, acc) => {
-    if (count === 0) {
-      return acc;
-    }
-    const start = getRandNumber(1, 100);
-    const step = getRandNumber(1, 10);
-    const progression = getProgression(start, step, progressionLength);
-    const data = prepareData(progression);
-    const newAcc = [...acc, getTask(...data)];
-    return iter(count - 1, newAcc);
-  };
-  return iter(length, []);
+const getTask = (...args) => {
+  const f = (question: string, answer: string) => ({
+    question,
+    answer,
+  });
+  return f(...prepareData(getProgression(...args)));
 };
 
 const run = () => {
-  const rule = 'What number is missing in this progression?';
-  const tasks = composeTasks(gameSteps);
+  const args = [
+    () => getRandNumber(1, 100),
+    () => getRandNumber(1, 10),
+    () => progressionLength,
+  ];
+  const tasks = composeTasks(getTask, args);
   return brainGames(rule, tasks);
 };
 

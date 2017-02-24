@@ -2,26 +2,29 @@
 const isEven = (number: number) => number % 2 === 0;
 
 const isPrime = (number: number) => {
-  console.log(number);
   if (number < 2) {
     return false;
   }
-  for (let i = 2; i < number / 2; i++) {
+  const iter = (i: number) => {
+    if (i > number / 2) {
+      return true;
+    }
     if (number % i === 0) {
       return false;
     }
-  }
-  return true;
+    return iter(i + 1);
+  };
+  return iter(2);
 };
 
 const getRandNumber = (start: number, end: number) =>
   start + Math.floor(Math.random() * ((end - start) + 1));
 
-const gcd = (a: number, b: number) => {
+const getGcd = (a: number, b: number) => {
   const max = Math.max(Math.abs(a), Math.abs(b));
   const min = Math.min(Math.abs(a), Math.abs(b));
 
-  return max % min === 0 ? min : gcd(max % min, min);
+  return max % min === 0 ? min : getGcd(max % min, min);
 };
 
 const getBalanced = (num: number) => {
@@ -66,4 +69,24 @@ const prepareData = (progression: Array<number>) => {
   return [result.join(', '), progression[index].toString()];
 };
 
-export { isEven, isPrime, getRandNumber, gcd, getBalanced, getProgression, prepareData };
+const composeTasks = (f: Function, args: Array<number>, gameSteps: number = 3) => {
+  const iter = (count: number, acc) => {
+    if (count === 0) {
+      return acc;
+    }
+    const newArgs = args.map(i => i());
+    return iter(count - 1, [...acc, f(...newArgs)]);
+  };
+  return iter(gameSteps, []);
+};
+
+export {
+  isEven,
+  isPrime,
+  getRandNumber,
+  getGcd,
+  getBalanced,
+  getProgression,
+  prepareData,
+  composeTasks,
+};

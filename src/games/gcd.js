@@ -1,30 +1,17 @@
 // @flow
-import { getRandNumber, gcd } from '../tools';
+import { getRandNumber, getGcd, composeTasks } from '../tools';
 import brainGames from '..';
 
-const gameSteps = 3;
+const rule = 'Find the greatest common divisor of given numbers.';
 
 const getTask = (a: number, b: number) => ({
   question: `Question: ${a} ${b}`,
-  answer: gcd(a, b).toString(),
+  answer: getGcd(a, b).toString(),
 });
 
-const composeTasks = (length: number) => {
-  const iter = (count: number, acc) => {
-    if (count === 0) {
-      return acc;
-    }
-    const a = getRandNumber(1, 100);
-    const b = getRandNumber(1, 100);
-    const newAcc = [...acc, getTask(a, b)];
-    return iter(count - 1, newAcc);
-  };
-  return iter(length, []);
-};
-
 const run = () => {
-  const rule = 'Find the greatest common divisor of given numbers.';
-  const tasks = composeTasks(gameSteps);
+  const args = [() => getRandNumber(1, 100), () => getRandNumber(1, 100)];
+  const tasks = composeTasks(getTask, args);
   return brainGames(rule, tasks);
 };
 
