@@ -69,7 +69,7 @@ const prepareData = (progression: Array<number>) => {
   return [result.join(', '), progression[index].toString()];
 };
 
-const composeTasks = (f: Function, args: Array<number>, gameSteps: number = 3) => {
+const composeTasks = (f: Function, args: Array<Function>, gameSteps: number = 3) => {
   const iter = (count: number, acc) => {
     if (count === 0) {
       return acc;
