@@ -9,7 +9,7 @@
 
 If you use npm:
 
-    $ npm install global b-games
+    $ npm install -g b-games
 
 If you use yarn:
 
